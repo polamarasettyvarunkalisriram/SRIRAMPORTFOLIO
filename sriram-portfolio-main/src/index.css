@@ -1,0 +1,212 @@
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Dark by default — recruiter-modern */
+    --background: 240 10% 4%;
+    --foreground: 0 0% 98%;
+
+    --card: 240 8% 7%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 240 8% 7%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 270 95% 70%;
+    --primary-foreground: 240 10% 4%;
+
+    --secondary: 240 6% 12%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 240 6% 12%;
+    --muted-foreground: 240 5% 65%;
+
+    --accent: 320 85% 65%;
+    --accent-foreground: 240 10% 4%;
+
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 6% 16%;
+    --input: 240 6% 16%;
+    --ring: 270 95% 70%;
+
+    --radius: 0.75rem;
+
+    /* Brand tokens */
+    --violet: 270 95% 70%;
+    --violet-soft: 270 85% 80%;
+    --pink: 320 85% 65%;
+    --cyan: 190 95% 60%;
+    --surface-1: 240 8% 7%;
+    --surface-2: 240 6% 10%;
+    --hairline: 240 6% 18%;
+
+    --gradient-brand: linear-gradient(135deg, hsl(var(--violet)) 0%, hsl(var(--pink)) 100%);
+    --gradient-text: linear-gradient(135deg, hsl(0 0% 98%) 0%, hsl(var(--violet-soft)) 50%, hsl(var(--pink)) 100%);
+    --gradient-aurora: radial-gradient(circle at 20% 20%, hsl(var(--violet) / 0.25), transparent 50%),
+                       radial-gradient(circle at 80% 60%, hsl(var(--pink) / 0.18), transparent 55%),
+                       radial-gradient(circle at 50% 100%, hsl(var(--cyan) / 0.12), transparent 50%);
+    --shadow-glow: 0 0 60px hsl(var(--violet) / 0.35);
+    --shadow-card: 0 8px 30px hsl(240 10% 0% / 0.5);
+    --transition-smooth: cubic-bezier(0.65, 0, 0.35, 1);
+  }
+
+  .light {
+    --background: 40 30% 97%;
+    --foreground: 240 10% 8%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 8%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 8%;
+    --primary: 265 80% 55%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 240 10% 95%;
+    --secondary-foreground: 240 10% 8%;
+    --muted: 240 10% 94%;
+    --muted-foreground: 240 5% 38%;
+    --accent: 320 75% 55%;
+    --accent-foreground: 0 0% 100%;
+    --border: 240 10% 88%;
+    --input: 240 10% 88%;
+    --ring: 265 80% 55%;
+
+    --violet: 265 80% 55%;
+    --violet-soft: 265 70% 60%;
+    --pink: 320 75% 55%;
+    --cyan: 195 85% 45%;
+    --surface-1: 0 0% 100%;
+    --surface-2: 240 10% 96%;
+    --hairline: 240 10% 88%;
+
+    --gradient-text: linear-gradient(135deg, hsl(240 10% 8%) 0%, hsl(var(--violet)) 60%, hsl(var(--pink)) 100%);
+    --gradient-aurora: radial-gradient(circle at 20% 20%, hsl(var(--violet) / 0.15), transparent 50%),
+                       radial-gradient(circle at 80% 60%, hsl(var(--pink) / 0.12), transparent 55%),
+                       radial-gradient(circle at 50% 100%, hsl(var(--cyan) / 0.08), transparent 50%);
+    --shadow-glow: 0 0 60px hsl(var(--violet) / 0.2);
+    --shadow-card: 0 8px 30px hsl(240 10% 50% / 0.12);
+  }
+}
+
+@layer base {
+  * { @apply border-border; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection {
+    background: hsl(var(--violet) / 0.4);
+    color: hsl(var(--foreground));
+  }
+
+  .font-serif { font-family: 'Instrument Serif', serif; font-weight: 400; }
+  .font-mono { font-family: 'JetBrains Mono', monospace; }
+}
+
+@layer utilities {
+  .text-balance { text-wrap: balance; }
+
+  .text-gradient {
+    background: var(--gradient-text);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .bg-aurora { background-image: var(--gradient-aurora); }
+
+  .bg-grid {
+    background-image:
+      linear-gradient(hsl(var(--hairline)) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--hairline)) 1px, transparent 1px);
+    background-size: 48px 48px;
+    mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
+  }
+
+  .glass {
+    background: hsl(var(--surface-1) / 0.6);
+    backdrop-filter: blur(16px);
+    border: 1px solid hsl(var(--hairline));
+  }
+
+  .card-hover {
+    transition: transform 0.5s var(--transition-smooth), border-color 0.4s, box-shadow 0.4s;
+  }
+  .card-hover:hover {
+    transform: translateY(-4px);
+    border-color: hsl(var(--violet) / 0.5);
+    box-shadow: var(--shadow-glow);
+  }
+
+  .glow-ring::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border-radius: inherit;
+    background: var(--gradient-brand);
+    z-index: -1;
+    opacity: 0.6;
+    filter: blur(16px);
+  }
+
+  .magnetic-btn {
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s var(--transition-smooth);
+  }
+  .magnetic-btn::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--gradient-brand);
+    opacity: 0;
+    transition: opacity 0.4s;
+  }
+  .magnetic-btn:hover::after { opacity: 1; }
+  .magnetic-btn > * { position: relative; z-index: 1; }
+
+  .fade-up { animation: fadeUp 0.9s var(--transition-smooth) both; }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .float { animation: float 6s ease-in-out infinite; }
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+  }
+
+  .marquee { animation: marquee 35s linear infinite; }
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  .pulse-dot {
+    animation: pulseDot 2s ease-in-out infinite;
+  }
+  @keyframes pulseDot {
+    0%, 100% { box-shadow: 0 0 0 0 hsl(140 80% 50% / 0.6); }
+    50% { box-shadow: 0 0 0 8px hsl(140 80% 50% / 0); }
+  }
+
+  .shine {
+    background: linear-gradient(110deg, transparent 30%, hsl(var(--violet-soft) / 0.4) 50%, transparent 70%);
+    background-size: 200% 100%;
+    animation: shine 3s linear infinite;
+  }
+  @keyframes shine {
+    from { background-position: 200% 0; }
+    to { background-position: -200% 0; }
+  }
+}
