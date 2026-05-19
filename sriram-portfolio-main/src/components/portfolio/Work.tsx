@@ -10,7 +10,7 @@ const projects = [
     stack: ["React", "Node.js", "Express", "MongoDB", "Chart.js"],
     accent: "from-[hsl(var(--violet))] to-[hsl(var(--pink))]",
     github: "https://github.com/polamarasettyvarunkalisriram/Expense-tracker",
-    live: "https://expense-tracker-ecru-five-ru65gjt19j.vercel.app/",
+    live: "https://expense-tracker-7723.vercel.app/",
   },
   {
     n: "02",
