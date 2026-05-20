@@ -19,8 +19,8 @@ const projects = [
     desc: "Full-stack task manager with JWT + bcrypt authentication, RESTful APIs via Axios, and a responsive React UI for create, edit, delete, and complete flows.",
     stack: ["MongoDB", "Express", "React", "Node", "JWT"],
     accent: "from-[hsl(var(--cyan))] to-[hsl(var(--violet))]",
-    github: "https://github.com/polamarasettyvarunkalisriram",
-    live: "#",
+    github: "https://github.com/polamarasettyvarunkalisriram/TaskWave-Task-Management-Application",
+    live: "https://task-wave-task-management-applicati.vercel.app/",
   },
   {
     n: "03",
